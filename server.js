@@ -8,7 +8,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.static(__dirname));
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: ["https://phoktbn.ovh", "https://www.phoktbn.ovh"], // On autorise ton site
+    methods: ["GET", "POST"]
+  }
+});
 
 let rooms = {};
 
