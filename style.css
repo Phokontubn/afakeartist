@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+:root {
+    --oink-red: #ff4654;
+    --oink-pink: #e312bd;
+    --border-thick: 4px solid #1a1a1a;
+    --border-thin: 2px solid #1a1a1a;
+}
+
+/* 1. RESET & BASE */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--oink-pink);
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#game-wrapper {
+    width: 95vw;
+    max-width: 1400px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 2. ÉCRANS (Lobby & Waiting) */
+#lobby-screen,
+#waiting-room {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border: var(--border-thick);
+    box-shadow: 10px 10px 0px #1a1a1a;
+}
+
+.oink-title {
+    margin: 0 0 20px 0;
+    color: #1a1a1a;
+    font-size: 2.5em;
+}
+
+/* 3. STRUCTURE DU JEU (3 COLONNES) */
+.game-layout-3cols {
+    display: grid;
+    grid-template-columns: 220px 1fr 300px;
+    /* Gauche / Centre / Droite */
+    gap: 20px;
+    width: 100%;
+    height: 85vh;
+}
+
+/* 4. COLONNES LATÉRALES (Joueurs & Chat) */
+.players-sidebar,
+.chat-sidebar {
+    background: white;
+    border: var(--border-thick);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    overflow: hidden;
+}
+
+.sidebar-title {
+    padding: 10px;
+    margin: 0;
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* L'ASCENSEUR (Scrollbar) pour les joueurs */
+#player-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0;
+}
+
+/* Design des items joueurs */
+.player-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-bottom: var(--border-thin);
+    background: white;
+    font-size: 0.8em;
+}
+
+.player-item:last-child {
+    border-bottom: none;
+}
+
+/* 5. ZONE DE DESSIN (CENTRE) */
+.drawing-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#game-status-bar {
+    background: white;
+    padding: 15px 25px;
+    border: var(--border-thick);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    font-size: 0.9em;
+}
+
+.art-frame {
+    padding: 0;
+    background: transparent;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Petit effet ressort */
+}
+
+/* LE CADRE QUI APPARAIT AU VOTE */
+.art-frame.exhibition-mode {
+    padding: 25px;
+    background: #5d3a1a; /* Bois */
+    border: 4px solid #3d2610;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Le canvas gagne son bord blanc (passe-partout) uniquement au vote */
+.art-frame.exhibition-mode canvas {
+    border: 15px solid #f0f0f0;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3);
+    /* On s'assure que le canvas est bien blanc et vif */
+    opacity: 1 !important; 
+    filter: brightness(1.05); 
+}
+
+/* Masquer la barre de statut de base si elle est vide pour gagner de la place */
+#game-status-bar:empty {
+    display: none;
+}
+
+canvas {
+    display: block;
+    background: white;
+    border: 15px solid #f0f0f0;
+    /* Effet cartonnette blanche */
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: crosshair;
+}
+
+/* 6. CHATROOM */
+#chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    font-size: 0.85em;
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#chat-messages strong {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+#chat-messages div {
+    background: rgba(0,0,0,0.03);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+#chat-form {
+    padding: 10px;
+    border-top: var(--border-thin);
+    background: #eee;
+}
+
+#chat-input {
+    width: 100%;
+    padding: 12px;
+    font-family: 'Archivo Black', sans-serif;
+    border: var(--border-thin);
+    outline: none;
+    text-transform: uppercase;
+}
+
+.guess-container {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    /* L'un sur l'autre pour plus de clarté */
+    align-items: center;
+    gap: 15px;
+    /* Voilà l'espacement */
+}
+
+#guessInput {
+    width: 80%;
+    padding: 12px;
+    border: var(--border-thick);
+    font-family: 'Archivo Black', sans-serif;
+    text-align: center;
+}
+
+#guessBtn {
+    background-color: #1a1a1a;
+    font-size: 14px;
+    width: 80%;
+}
+
+/* Style du bouton rejouer pour qu'il soit distinct */
+#replayBtn {
+    margin-top: 30px;
+    background-color: #1a1a1a;
+}
+
+/* 7. ÉLÉMENTS UI (Boutons, Inputs, Avatars) */
+button {
+    background: var(--oink-red);
+    color: white;
+    border: var(--border-thick);
+    padding: 15px 30px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px #1a1a1a;
+    transition: 0.1s;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0px #1a1a1a;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.input-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+input[type="text"]#playerName,
+input[type="text"]#guessInput,
+input[type="text"]#roomCode {
+    width: 280px;
+    padding: 15px;
+    font-family: 'Archivo Black', sans-serif;
+    border: var(--border-thick);
+    box-shadow: 4px 4px 0px #1a1a1a;
+    outline: none;
+    text-align: center;
+}
+
+/* AVATARS */
+.avatar-scribble {
+    width: 45px;
+    height: 45px;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+#replayBtn {
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    /* Noir pour changer du rouge */
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+/* 8. SCROLLBAR DESIGN (Optionnel pour le style) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+}

@@ -1,0 +1,964 @@
+[
+    {
+        "category": "Animaux",
+        "word": "Éléphant"
+    },
+    {
+        "category": "Animaux",
+        "word": "Girafe"
+    },
+    {
+        "category": "Animaux",
+        "word": "Lion"
+    },
+    {
+        "category": "Animaux",
+        "word": "Chat"
+    },
+    {
+        "category": "Animaux",
+        "word": "Chien"
+    },
+    {
+        "category": "Animaux",
+        "word": "Tortue"
+    },
+    {
+        "category": "Animaux",
+        "word": "Pingouin"
+    },
+    {
+        "category": "Animaux",
+        "word": "Poisson"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Aigle"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Canard"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Poule"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Hibou"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Perroquet"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Flamant rose"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Cygne"
+    },
+    {
+        "category": "Oiseaux",
+        "word": "Moineau"
+    },
+    {
+        "category": "Insectes",
+        "word": "Papillon"
+    },
+    {
+        "category": "Insectes",
+        "word": "Abeille"
+    },
+    {
+        "category": "Insectes",
+        "word": "Fourmi"
+    },
+    {
+        "category": "Insectes",
+        "word": "Coccinelle"
+    },
+    {
+        "category": "Insectes",
+        "word": "Libellule"
+    },
+    {
+        "category": "Insectes",
+        "word": "Moustique"
+    },
+    {
+        "category": "Insectes",
+        "word": "Araignée"
+    },
+    {
+        "category": "Insectes",
+        "word": "Scarabée"
+    },
+    {
+        "category": "Objets",
+        "word": "Parapluie"
+    },
+    {
+        "category": "Objets",
+        "word": "Clé"
+    },
+    {
+        "category": "Objets",
+        "word": "Ciseaux"
+    },
+    {
+        "category": "Objets",
+        "word": "Lampe"
+    },
+    {
+        "category": "Objets",
+        "word": "Marteau"
+    },
+    {
+        "category": "Objets",
+        "word": "Brosse"
+    },
+    {
+        "category": "Objets",
+        "word": "Horloge"
+    },
+    {
+        "category": "Objets",
+        "word": "Bougie"
+    },
+    {
+        "category": "Meubles",
+        "word": "Chaise"
+    },
+    {
+        "category": "Meubles",
+        "word": "Table"
+    },
+    {
+        "category": "Meubles",
+        "word": "Canapé"
+    },
+    {
+        "category": "Meubles",
+        "word": "Lit"
+    },
+    {
+        "category": "Meubles",
+        "word": "Armoire"
+    },
+    {
+        "category": "Meubles",
+        "word": "Bureau"
+    },
+    {
+        "category": "Meubles",
+        "word": "Étagère"
+    },
+    {
+        "category": "Meubles",
+        "word": "Tabouret"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Croissant"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Pizza"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Hamburger"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Sushi"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Fromage"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Pain"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Gâteau"
+    },
+    {
+        "category": "Nourriture",
+        "word": "Glace"
+    },
+    {
+        "category": "Fruits",
+        "word": "Pomme"
+    },
+    {
+        "category": "Fruits",
+        "word": "Banane"
+    },
+    {
+        "category": "Fruits",
+        "word": "Fraise"
+    },
+    {
+        "category": "Fruits",
+        "word": "Orange"
+    },
+    {
+        "category": "Fruits",
+        "word": "Raisin"
+    },
+    {
+        "category": "Fruits",
+        "word": "Ananas"
+    },
+    {
+        "category": "Fruits",
+        "word": "Cerise"
+    },
+    {
+        "category": "Fruits",
+        "word": "Pastèque"
+    },
+    {
+        "category": "Légumes",
+        "word": "Carotte"
+    },
+    {
+        "category": "Légumes",
+        "word": "Tomate"
+    },
+    {
+        "category": "Légumes",
+        "word": "Brocoli"
+    },
+    {
+        "category": "Légumes",
+        "word": "Poivron"
+    },
+    {
+        "category": "Légumes",
+        "word": "Maïs"
+    },
+    {
+        "category": "Légumes",
+        "word": "Concombre"
+    },
+    {
+        "category": "Légumes",
+        "word": "Aubergine"
+    },
+    {
+        "category": "Légumes",
+        "word": "Champignon"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Voiture"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Bus"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Train"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Avion"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Bateau"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Vélo"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Moto"
+    },
+    {
+        "category": "Véhicules",
+        "word": "Tracteur"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Chapeau"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Chaussure"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Robe"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Pantalon"
+    },
+    {
+        "category": "Vêtements",
+        "word": "T-shirt"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Manteau"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Gant"
+    },
+    {
+        "category": "Vêtements",
+        "word": "Écharpe"
+    },
+    {
+        "category": "Métiers",
+        "word": "Pompier"
+    },
+    {
+        "category": "Métiers",
+        "word": "Policier"
+    },
+    {
+        "category": "Métiers",
+        "word": "Médecin"
+    },
+    {
+        "category": "Métiers",
+        "word": "Cuisinier"
+    },
+    {
+        "category": "Métiers",
+        "word": "Astronaute"
+    },
+    {
+        "category": "Métiers",
+        "word": "Pirate"
+    },
+    {
+        "category": "Métiers",
+        "word": "Magicien"
+    },
+    {
+        "category": "Métiers",
+        "word": "Peintre"
+    },
+    {
+        "category": "Nature",
+        "word": "Arbre"
+    },
+    {
+        "category": "Nature",
+        "word": "Fleur"
+    },
+    {
+        "category": "Nature",
+        "word": "Montagne"
+    },
+    {
+        "category": "Nature",
+        "word": "Volcan"
+    },
+    {
+        "category": "Nature",
+        "word": "Rivière"
+    },
+    {
+        "category": "Nature",
+        "word": "Nuage"
+    },
+    {
+        "category": "Nature",
+        "word": "Cactus"
+    },
+    {
+        "category": "Nature",
+        "word": "Forêt"
+    },
+    {
+        "category": "Monuments",
+        "word": "Tour Eiffel"
+    },
+    {
+        "category": "Monuments",
+        "word": "Pyramide"
+    },
+    {
+        "category": "Monuments",
+        "word": "Colisée"
+    },
+    {
+        "category": "Monuments",
+        "word": "Big Ben"
+    },
+    {
+        "category": "Monuments",
+        "word": "Statue de la Liberté"
+    },
+    {
+        "category": "Monuments",
+        "word": "Temple"
+    },
+    {
+        "category": "Monuments",
+        "word": "Château"
+    },
+    {
+        "category": "Monuments",
+        "word": "Phare"
+    },
+    {
+        "category": "Instruments",
+        "word": "Guitare"
+    },
+    {
+        "category": "Instruments",
+        "word": "Piano"
+    },
+    {
+        "category": "Instruments",
+        "word": "Tambour"
+    },
+    {
+        "category": "Instruments",
+        "word": "Violon"
+    },
+    {
+        "category": "Instruments",
+        "word": "Flûte"
+    },
+    {
+        "category": "Instruments",
+        "word": "Trompette"
+    },
+    {
+        "category": "Instruments",
+        "word": "Saxophone"
+    },
+    {
+        "category": "Instruments",
+        "word": "Harpe"
+    },
+    {
+        "category": "Sports",
+        "word": "Football"
+    },
+    {
+        "category": "Sports",
+        "word": "Basketball"
+    },
+    {
+        "category": "Sports",
+        "word": "Tennis"
+    },
+    {
+        "category": "Sports",
+        "word": "Natation"
+    },
+    {
+        "category": "Sports",
+        "word": "Ski"
+    },
+    {
+        "category": "Sports",
+        "word": "Boxe"
+    },
+    {
+        "category": "Sports",
+        "word": "Golf"
+    },
+    {
+        "category": "Sports",
+        "word": "Surf"
+    },
+    {
+        "category": "École",
+        "word": "Livre"
+    },
+    {
+        "category": "École",
+        "word": "Crayon"
+    },
+    {
+        "category": "École",
+        "word": "Gomme"
+    },
+    {
+        "category": "École",
+        "word": "Sac à dos"
+    },
+    {
+        "category": "École",
+        "word": "Règle"
+    },
+    {
+        "category": "École",
+        "word": "Cahier"
+    },
+    {
+        "category": "École",
+        "word": "Tableau"
+    },
+    {
+        "category": "École",
+        "word": "Compas"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Casserole"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Poêle"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Cuillère"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Four"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Réfrigérateur"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Mixeur"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Grille-pain"
+    },
+    {
+        "category": "Cuisine",
+        "word": "Bouilloire"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Brosse à dents"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Savon"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Shampoing"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Serviette"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Douche"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Baignoire"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Rasoir"
+    },
+    {
+        "category": "Salle de bain",
+        "word": "Peigne"
+    },
+    {
+        "category": "Jouets",
+        "word": "Poupée"
+    },
+    {
+        "category": "Jouets",
+        "word": "Ballon"
+    },
+    {
+        "category": "Jouets",
+        "word": "Puzzle"
+    },
+    {
+        "category": "Jouets",
+        "word": "Toupie"
+    },
+    {
+        "category": "Jouets",
+        "word": "Cerf-volant"
+    },
+    {
+        "category": "Jouets",
+        "word": "Train miniature"
+    },
+    {
+        "category": "Jouets",
+        "word": "Peluches"
+    },
+    {
+        "category": "Jouets",
+        "word": "Yo-yo"
+    },
+    {
+        "category": "Formes",
+        "word": "Cercle"
+    },
+    {
+        "category": "Formes",
+        "word": "Carré"
+    },
+    {
+        "category": "Formes",
+        "word": "Triangle"
+    },
+    {
+        "category": "Formes",
+        "word": "Étoile"
+    },
+    {
+        "category": "Formes",
+        "word": "Cœur"
+    },
+    {
+        "category": "Formes",
+        "word": "Losange"
+    },
+    {
+        "category": "Formes",
+        "word": "Rectangle"
+    },
+    {
+        "category": "Formes",
+        "word": "Spirale"
+    },
+    {
+        "category": "Ciel",
+        "word": "Soleil"
+    },
+    {
+        "category": "Ciel",
+        "word": "Lune"
+    },
+    {
+        "category": "Ciel",
+        "word": "Étoile filante"
+    },
+    {
+        "category": "Ciel",
+        "word": "Arc-en-ciel"
+    },
+    {
+        "category": "Ciel",
+        "word": "Nuage orageux"
+    },
+    {
+        "category": "Ciel",
+        "word": "Éclair"
+    },
+    {
+        "category": "Ciel",
+        "word": "Planète"
+    },
+    {
+        "category": "Ciel",
+        "word": "Comète"
+    },
+
+    {
+        "category": "Émotions",
+        "word": "Joie"
+    },
+
+    {
+        "category": "Émotions",
+        "word": "Tristesse"
+    },
+    {
+        "category": "Émotions",
+        "word": "Colère"
+    },
+    {
+        "category": "Émotions",
+        "word": "Peur"
+    },
+    {
+        "category": "Émotions",
+        "word": "Surprise"
+    },
+    {
+        "category": "Émotions",
+        "word": "Amour"
+    },
+    {
+        "category": "Émotions",
+        "word": "Honte"
+    },
+    {
+        "category": "Émotions",
+        "word": "Fierté"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Main"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Pied"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Œil"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Oreille"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Nez"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Bouche"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Cœur"
+    },
+    {
+        "category": "Corps humain",
+        "word": "Cerveau"
+    },
+    {
+        "category": "Maison",
+        "word": "Porte"
+    },
+    {
+        "category": "Maison",
+        "word": "Fenêtre"
+    },
+    {
+        "category": "Maison",
+        "word": "Toit"
+    },
+    {
+        "category": "Maison",
+        "word": "Cheminée"
+    },
+    {
+        "category": "Maison",
+        "word": "Escalier"
+    },
+    {
+        "category": "Maison",
+        "word": "Garage"
+    },
+    {
+        "category": "Maison",
+        "word": "Jardin"
+    },
+    {
+        "category": "Maison",
+        "word": "Balcon"
+    },
+    {
+        "category": "Mer",
+        "word": "Vague"
+    },
+    {
+        "category": "Mer",
+        "word": "Coquillage"
+    },
+    {
+        "category": "Mer",
+        "word": "Étoile de mer"
+    },
+    {
+        "category": "Mer",
+        "word": "Corail"
+    },
+    {
+        "category": "Mer",
+        "word": "Méduse"
+    },
+    {
+        "category": "Mer",
+        "word": "Crabe"
+    },
+    {
+        "category": "Mer",
+        "word": "Dauphin"
+    },
+    {
+        "category": "Mer",
+        "word": "Requin"
+    },
+    {
+        "category": "Montagne",
+        "word": "Sommet"
+    },
+    {
+        "category": "Montagne",
+        "word": "Neige"
+    },
+    {
+        "category": "Montagne",
+        "word": "Glacier"
+    },
+    {
+        "category": "Montagne",
+        "word": "Roche"
+    },
+    {
+        "category": "Montagne",
+        "word": "Sentier"
+    },
+    {
+        "category": "Montagne",
+        "word": "Cabane"
+    },
+    {
+        "category": "Montagne",
+        "word": "Chèvre"
+    },
+    {
+        "category": "Montagne",
+        "word": "Téléphérique"
+    },
+    {
+        "category": "Ville",
+        "word": "Immeuble"
+    },
+    {
+        "category": "Ville",
+        "word": "Rue"
+    },
+    {
+        "category": "Ville",
+        "word": "Passage piéton"
+    },
+    {
+        "category": "Ville",
+        "word": "Feu tricolore"
+    },
+    {
+        "category": "Ville",
+        "word": "Pont"
+    },
+    {
+        "category": "Ville",
+        "word": "Place"
+    },
+    {
+        "category": "Ville",
+        "word": "Métro"
+    },
+    {
+        "category": "Ville",
+        "word": "Parc"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Dragon"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Licorne"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Fée"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Sirène"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Ogre"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Fantôme"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Vampire"
+    },
+    {
+        "category": "Fantastique",
+        "word": "Sorcier"
+    },
+    {
+        "category": "Temps",
+        "word": "Horloge"
+    },
+    {
+        "category": "Temps",
+        "word": "Montre"
+    },
+    {
+        "category": "Temps",
+        "word": "Calendrier"
+    },
+    {
+        "category": "Temps",
+        "word": "Sablier"
+    },
+    {
+        "category": "Temps",
+        "word": "Aiguille"
+    },
+    {
+        "category": "Temps",
+        "word": "Minute"
+    },
+    {
+        "category": "Temps",
+        "word": "Heure"
+    },
+    {
+        "category": "Temps",
+        "word": "Jour"
+    },
+    {
+        "category": "Jeux",
+        "word": "Echecs"
+    },
+    {
+        "category": "Jeux",
+        "word": "Cluedo"
+    },
+    {
+        "category": "Jeux",
+        "word": "Uno"
+    },
+    {
+        "category": "Jeux",
+        "word": "Monopoly"
+    },
+    {
+        "category": "Jeux",
+        "word": "Tarot"
+    },
+    {
+        "category": "Jeux",
+        "word": "Dobble"
+    },
+    {
+        "category": "Jeux",
+        "word": "Loups-Garou"
+    },
+    {
+        "category": "Jeux",
+        "word": "Aventuriers du rail"
+    }
+]

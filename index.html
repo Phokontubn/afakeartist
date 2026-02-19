@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A fake artist goes to Montpellier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game-wrapper">
+        <div id="lobby-screen">
+            <h1 class="oink-title">A FAKE ARTIST</h1>
+            <div class="input-stack">
+                <input type="text" id="playerName" placeholder="TON NOM" maxlength="12">
+                <input type="text" id="roomCode" placeholder="CODE DU SALON">
+                <button onclick="joinRoom()">REJOINDRE</button>
+            </div>
+        </div>
+
+        <div id="waiting-room" style="display:none;">
+            <h2 class="oink-title" style="font-size: 1.5em;">SALON : <span id="displayRoomCode"></span></h2>
+            <div id="playerListWaiting" class="player-list-grid"></div>
+            <p id="wait-message" style="font-size: 0.8em; margin-top: 15px; color: #666;">
+                En attente d'au moins 3 joueurs...
+            </p>
+            <div class="button-row" style="margin-top: 20px;">
+                <button id="startBtn" onclick="startGame()" style="display:none;">LANCER LA PARTIE</button>
+            </div>
+        </div>
+
+        <div id="game-screen" style="display:none;">
+            <div class="game-layout-3cols">
+                <aside class="players-sidebar">
+                    <h3 class="sidebar-title">Artistes</h3>
+                    <div id="player-list"></div>
+                </aside>
+
+                <main class="drawing-area">
+                    <div id="game-status-bar">
+                        <span id="game-info">Attente...</span>
+                        <span id="status"></span>
+                    </div>
+                    <div class="art-frame">
+                        <canvas id="canvas" width="800" height="600"></canvas>
+                    </div>
+                </main>
+
+                <aside class="chat-sidebar">
+                    <h3 class="sidebar-title">Chat</h3>
+                    <div id="chat-messages"></div>
+                    <form id="chat-form">
+                        <input type="text" id="chat-input" placeholder="Discutez ici..." autocomplete="off">
+                    </form>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="avatar.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>
