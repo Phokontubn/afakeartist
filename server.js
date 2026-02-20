@@ -9,10 +9,10 @@ const app = express();
 app.use(express.static(__dirname));
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin: ["https://phoktbn.ovh", "https://www.phoktbn.ovh"], // On autorise ton site
-    methods: ["GET", "POST"]
-  }
+    cors: {
+        origin: ["https://phoktbn.ovh", "https://www.phoktbn.ovh"],
+        methods: ["GET", "POST"]
+    }
 });
 
 let rooms = {};
@@ -153,68 +153,77 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
 
         for (let roomCode in rooms) {
-            rooms[roomCode].players = rooms[roomCode].players.filter(p => p.id !== socket.id);
-            io.to(roomCode).emit('update-players', rooms[roomCode].players);
-        }
-    });
-
-    socket.on('chatMessage', (text) => {
-        const roomCode = Array.from(socket.rooms).find(r => r !== socket.id);
-
-        if (roomCode && rooms[roomCode]) {
             const room = rooms[roomCode];
-            const player = room.players.find(p => p.id === socket.id);
 
-            if (player) {
-                io.to(roomCode).emit('message', {
-                    user: player.name,
-                    color: player.color,
-                    text: text
-                });
+            room.players = room.players.filter(p => p.id !== socket.id);
+
+            if (room.players.length === 0) {
+                delete rooms[roomCode];
+                console.log(`Salle ${roomCode} supprimée (plus de joueurs).`);
+            } else {
+                io.to(roomCode).emit('update-players', room.players);
             }
         }
     });
+});
 
-    function initNewRound(roomCode) {
+socket.on('chatMessage', (text) => {
+    const roomCode = Array.from(socket.rooms).find(r => r !== socket.id);
+
+    if (roomCode && rooms[roomCode]) {
         const room = rooms[roomCode];
-        const randomEntry = wordsData[Math.floor(Math.random() * wordsData.length)];
+        const player = room.players.find(p => p.id === socket.id);
 
-        room.drawingHistory = [];
-        room.gameStarted = true;
-        room.players.forEach(p => p.isSpectator = false);
-
-        io.to(roomCode).emit('update-players', room.players);
-
-        const activePlayers = room.players;
-        room.currentPlayerIndex = Math.floor(Math.random() * activePlayers.length);
-        room.currentWord = randomEntry.word;
-        room.currentCategory = randomEntry.category;
-        room.roundCounter = 0;
-        room.votes = {};
-        room.totalStrokesDone = 0;
-
-        const fakeArtistIndex = Math.floor(Math.random() * activePlayers.length);
-        room.fakeId = activePlayers[fakeArtistIndex].id;
-
-        activePlayers.forEach((player) => {
-            const isFake = (player.id === room.fakeId);
-            io.to(player.id).emit('role-assignment', {
-                role: isFake ? 'fake' : 'artist',
-                category: room.currentCategory,
-                word: isFake ? '???' : room.currentWord
+        if (player) {
+            io.to(roomCode).emit('message', {
+                user: player.name,
+                color: player.color,
+                text: text
             });
-        });
-
-        const firstPlayer = activePlayers[room.currentPlayerIndex];
-        io.to(roomCode).emit('next-turn', { activePlayerId: firstPlayer.id, playerName: firstPlayer.name });
-    }
-
-    socket.on('restart-game', (roomCode) => {
-        if (rooms[roomCode]) {
-            io.to(roomCode).emit('clear-canvas');
-            initNewRound(roomCode);
         }
+    }
+});
+
+function initNewRound(roomCode) {
+    const room = rooms[roomCode];
+    const randomEntry = wordsData[Math.floor(Math.random() * wordsData.length)];
+
+    room.drawingHistory = [];
+    room.gameStarted = true;
+    room.players.forEach(p => p.isSpectator = false);
+
+    io.to(roomCode).emit('update-players', room.players);
+
+    const activePlayers = room.players;
+    room.currentPlayerIndex = Math.floor(Math.random() * activePlayers.length);
+    room.currentWord = randomEntry.word;
+    room.currentCategory = randomEntry.category;
+    room.roundCounter = 0;
+    room.votes = {};
+    room.totalStrokesDone = 0;
+
+    const fakeArtistIndex = Math.floor(Math.random() * activePlayers.length);
+    room.fakeId = activePlayers[fakeArtistIndex].id;
+
+    activePlayers.forEach((player) => {
+        const isFake = (player.id === room.fakeId);
+        io.to(player.id).emit('role-assignment', {
+            role: isFake ? 'fake' : 'artist',
+            category: room.currentCategory,
+            word: isFake ? '???' : room.currentWord
+        });
     });
+
+    const firstPlayer = activePlayers[room.currentPlayerIndex];
+    io.to(roomCode).emit('next-turn', { activePlayerId: firstPlayer.id, playerName: firstPlayer.name });
+}
+
+socket.on('restart-game', (roomCode) => {
+    if (rooms[roomCode]) {
+        io.to(roomCode).emit('clear-canvas');
+        initNewRound(roomCode);
+    }
+});
 })
 
 server.listen(PORT, '0.0.0.0', () => console.log(`Serv sur ${PORT}`));
