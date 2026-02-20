@@ -150,6 +150,7 @@ io.on('connection', (socket) => {
             nextTurn(roomCode);
         }
     });
+
     socket.on('disconnect', () => {
 
         for (let roomCode in rooms) {
@@ -165,65 +166,65 @@ io.on('connection', (socket) => {
             }
         }
     });
-});
 
-socket.on('chatMessage', (text) => {
-    const roomCode = Array.from(socket.rooms).find(r => r !== socket.id);
 
-    if (roomCode && rooms[roomCode]) {
-        const room = rooms[roomCode];
-        const player = room.players.find(p => p.id === socket.id);
+    socket.on('chatMessage', (text) => {
+        const roomCode = Array.from(socket.rooms).find(r => r !== socket.id);
 
-        if (player) {
-            io.to(roomCode).emit('message', {
-                user: player.name,
-                color: player.color,
-                text: text
-            });
+        if (roomCode && rooms[roomCode]) {
+            const room = rooms[roomCode];
+            const player = room.players.find(p => p.id === socket.id);
+
+            if (player) {
+                io.to(roomCode).emit('message', {
+                    user: player.name,
+                    color: player.color,
+                    text: text
+                });
+            }
         }
-    }
-});
-
-function initNewRound(roomCode) {
-    const room = rooms[roomCode];
-    const randomEntry = wordsData[Math.floor(Math.random() * wordsData.length)];
-
-    room.drawingHistory = [];
-    room.gameStarted = true;
-    room.players.forEach(p => p.isSpectator = false);
-
-    io.to(roomCode).emit('update-players', room.players);
-
-    const activePlayers = room.players;
-    room.currentPlayerIndex = Math.floor(Math.random() * activePlayers.length);
-    room.currentWord = randomEntry.word;
-    room.currentCategory = randomEntry.category;
-    room.roundCounter = 0;
-    room.votes = {};
-    room.totalStrokesDone = 0;
-
-    const fakeArtistIndex = Math.floor(Math.random() * activePlayers.length);
-    room.fakeId = activePlayers[fakeArtistIndex].id;
-
-    activePlayers.forEach((player) => {
-        const isFake = (player.id === room.fakeId);
-        io.to(player.id).emit('role-assignment', {
-            role: isFake ? 'fake' : 'artist',
-            category: room.currentCategory,
-            word: isFake ? '???' : room.currentWord
-        });
     });
 
-    const firstPlayer = activePlayers[room.currentPlayerIndex];
-    io.to(roomCode).emit('next-turn', { activePlayerId: firstPlayer.id, playerName: firstPlayer.name });
-}
+    function initNewRound(roomCode) {
+        const room = rooms[roomCode];
+        const randomEntry = wordsData[Math.floor(Math.random() * wordsData.length)];
 
-socket.on('restart-game', (roomCode) => {
-    if (rooms[roomCode]) {
-        io.to(roomCode).emit('clear-canvas');
-        initNewRound(roomCode);
+        room.drawingHistory = [];
+        room.gameStarted = true;
+        room.players.forEach(p => p.isSpectator = false);
+
+        io.to(roomCode).emit('update-players', room.players);
+
+        const activePlayers = room.players;
+        room.currentPlayerIndex = Math.floor(Math.random() * activePlayers.length);
+        room.currentWord = randomEntry.word;
+        room.currentCategory = randomEntry.category;
+        room.roundCounter = 0;
+        room.votes = {};
+        room.totalStrokesDone = 0;
+
+        const fakeArtistIndex = Math.floor(Math.random() * activePlayers.length);
+        room.fakeId = activePlayers[fakeArtistIndex].id;
+
+        activePlayers.forEach((player) => {
+            const isFake = (player.id === room.fakeId);
+            io.to(player.id).emit('role-assignment', {
+                role: isFake ? 'fake' : 'artist',
+                category: room.currentCategory,
+                word: isFake ? '???' : room.currentWord
+            });
+        });
+
+        const firstPlayer = activePlayers[room.currentPlayerIndex];
+        io.to(roomCode).emit('next-turn', { activePlayerId: firstPlayer.id, playerName: firstPlayer.name });
     }
-});
+
+    socket.on('restart-game', (roomCode) => {
+        if (rooms[roomCode]) {
+            io.to(roomCode).emit('clear-canvas');
+            initNewRound(roomCode);
+        }
+    });
 })
 
 server.listen(PORT, '0.0.0.0', () => console.log(`Serv sur ${PORT}`));
